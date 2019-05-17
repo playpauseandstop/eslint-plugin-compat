@@ -220,6 +220,26 @@ ruleTester.run('compat', rule, {
       ]
     },
     {
+      code: 'Object.entries({})',
+      settings: { browsers: ['android 4'] },
+      errors: [
+        {
+          message: 'Object.entries() is not supported in Android 4',
+          type: 'MemberExpression'
+        }
+      ]
+    },
+    {
+      code: 'Object.values({})',
+      settings: { browsers: ['ios 7'] },
+      errors: [
+        {
+          message: 'Object.entries() is not supported in iOS Safari 7.0',
+          type: 'MemberExpression'
+        }
+      ]
+    },
+    {
       code: 'Object.values({})',
       settings: { browsers: ['safari 9'] },
       errors: [
